@@ -1,0 +1,51 @@
+version: '3.7'
+services:  
+  geomap:
+    image: geomap
+    build:
+      context: .
+      dockerfile: Dockerfile
+    secrets:
+     - ZABBIX_ENDPOINT
+     - ZABBIX_USER
+     - ZABBIX_PASS
+     - ORACLE_ENDPOINT
+     - ORACLE_USER
+     - ORACLE_PASS
+    deploy:
+      mode: replicated
+      replicas: 1
+  leaflet:
+    image: nginx:alpine
+    secrets:
+      - source: nginx_home
+        target: /usr/share/nginx/html/index.html
+      - source: index_js
+        target: /usr/share/nginx/html/index.js
+      - source: leaflet_realtime
+        target: /usr/share/nginx/html/leaflet-realtime.js
+    ports:
+      - "8081:80"
+    deploy:
+      mode: replicated
+      replicas: 1
+
+secrets:
+  ZABBIX_ENDPOINT:
+    file: secrets/.ZABBIX_ENDPOINT
+  ZABBIX_USER:
+    file: secrets/.ZABBIX_USER
+  ZABBIX_PASS:
+    file: secrets/.ZABBIX_PASS
+  ORACLE_ENDPOINT:
+    file: secrets/.ORACLE_ENDPOINT
+  ORACLE_USER:
+    file: secrets/.ORACLE_USER
+  ORACLE_PASS:
+    file: secrets/.ORACLE_PASS
+  nginx_home:
+    file: leaflet_data/index.html
+  index_js:
+    file: leaflet_data/index.js
+  leaflet_realtime:
+    file: leaflet_data/leaflet-realtime.js
