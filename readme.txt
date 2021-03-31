@@ -49,7 +49,7 @@ Manage Users and Groups -> Create User -> 'geoapi' -> Group Assignments -> Restf
 
 SQL Workshop -> SQL Scripts -> Upload -> 1_geomap.sql -> Run
 SQL Workshop -> SQL Scripts -> Upload -> 2_restful_service_geojson.sql -> Run
-SQL Workshop -> SQL Scripts -> Upload -> 3_restful_service_geoapi.sql
+SQL Workshop -> SQL Scripts -> Upload -> 3_restful_service_geoapi.sql -> Run
 
 App Builder -> Import -> 4_geomap_apex_app.sql
 -------------------------
