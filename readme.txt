@@ -63,7 +63,7 @@ git clone https://github.com/tomsozolins/geomap.git ; \
 
 -------------------------
 Change secrets to your desired values in 'secrets' directory.
-Change 'leaflet_data/index.js' Geojson url to your apex workspace url.
+Change 'leaflet_data/index.js' Geojson url to your apex workspace geojson rest url.
 -------------------------
 Zabbix server installation
 # docker stack deploy --compose-file=docker-compose-zabbix.yaml zabbix_stack
