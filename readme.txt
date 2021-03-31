@@ -53,9 +53,6 @@ SQL Workshop -> SQL Scripts -> Upload -> 3_restful_service_geoapi.sql -> Run
 
 App Builder -> Import -> 4_geomap_apex_app.sql
 -------------------------
-Change secrets to your desired values in 'secrets' directory.
-Change 'leaflet_data/index.js' Geojson url to your apex workspace url.
--------------------------
 Clone project to both nodes
 
 # mkdir /app ; \
@@ -63,6 +60,10 @@ cd /app ; \
 rm -rf geomap ; \ 
 git clone https://github.com/tomsozolins/geomap.git ; \
  cd /app/geomap
+
+-------------------------
+Change secrets to your desired values in 'secrets' directory.
+Change 'leaflet_data/index.js' Geojson url to your apex workspace url.
 -------------------------
 Zabbix server installation
 # docker stack deploy --compose-file=docker-compose-zabbix.yaml zabbix_stack
