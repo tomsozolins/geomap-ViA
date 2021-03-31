@@ -26,12 +26,11 @@ async def main():
     zapi = ZabbixAPI(zabbix_endpoint)
     zapi.session.verify = False
     zapi.login(zabbix_user, zabbix_pass)
-    
+
     logger.info(f'{zapi.__class__.__name__} - getting host data')
     zabbix_data = zapi.host.get(output="extend", selectInventory=True)
 
     o = Oracle()
-    time.sleep(1)
 
     await o.delete_geo_points()
 
